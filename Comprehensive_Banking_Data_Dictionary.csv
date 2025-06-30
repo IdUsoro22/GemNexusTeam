@@ -1,0 +1,41 @@
+﻿Column Name,Description
+Customer ID,Unique identifier for each customer
+First Name,Customer's first name
+Last Name,Customer's last name
+Age,Age of the customer
+Gender,Gender of the customer
+Address,Customer's street address
+City,City of residence
+Contact Number,Customer's phone number
+Email,Customer's email address
+Account Type,"Type of account (e.g., savings, checking)"
+Account Balance,Current balance in the customer’s account
+Date Of Account Opening,Date when the account was opened
+Last Transaction Date,Date of the most recent transaction
+TransactionID,Unique identifier for each transaction
+Transaction Date,Date of the transaction
+Transaction Type,"Type of transaction (e.g., deposit, withdrawal, transfer)"
+Transaction Amount,Amount of money involved in the transaction
+Account Balance After Transaction,Balance in the account after the transaction
+Branch ID,Identifier for the branch where the transaction occurred
+Loan ID,Unique identifier for each loan
+Loan Amount,Amount of the loan taken by the customer
+Loan Type,"Type of loan (e.g., personal, mortgage)"
+Interest Rate,Interest rate applied to the loan
+Loan Term,Duration of the loan in months
+Approval/Rejection Date,Date the loan was approved or rejected
+Loan Status,"Status of the loan (e.g., Approved, Rejected, Ongoing)"
+CardID,Unique identifier for each credit card
+Card Type,"Type of credit card (e.g., Gold, Platinum)"
+Credit Limit,Maximum credit allowed on the card
+Credit Card Balance,Current balance on the credit card
+Minimum Payment Due,Minimum amount to be paid for the credit card
+Payment Due Date,Date by which the credit card payment is due
+Last Credit Card Payment Date,Date of the last credit card payment
+Rewards Points,Accumulated reward points on the credit card
+Feedback ID,Unique identifier for each customer feedback entry
+Feedback Date,Date the feedback was submitted
+Feedback Type,"Type of feedback (e.g., complaint, suggestion, praise)"
+Resolution Status,Current resolution status of the feedback
+Resolution Date,Date the feedback was resolved
+Anomaly,"Indicator of whether the transaction is likely fraudulent or abnormal (-1 = anomaly, 1 = normal)"

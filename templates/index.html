@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TDI Trust Bank - Loan Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(to right, #d4e7f5, #f0f5f9);
+            margin: 0;
+            padding: 40px;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            padding: 40px;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .header img {
+            width: 70px;
+            margin-right: 20px;
+        }
+
+        .header h1 {
+            color: #2c3e50;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #34495e;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #bdc3c7;
+            border-radius: 8px;
+            font-size: 16px;
+            margin-top: 8px;
+            transition: border 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus {
+            border-color: #3498db;
+            box-shadow: 0 0 8px rgba(52, 152, 219, 0.3);
+            outline: none;
+        }
+
+        button {
+            background-color: #3498db;
+            color: white;
+            padding: 14px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 30px;
+            width: 100%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        .result {
+            margin-top: 30px;
+            background-color: #ecfdf5;
+            padding: 20px;
+            border-left: 6px solid #2ecc71;
+            border-radius: 8px;
+        }
+
+        .result.error {
+            background-color: #fdecea;
+            border-left-color: #e74c3c;
+        }
+
+        .result p {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 26px;
+            }
+
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Bank Logo">
+            <h1>TDI Trust Bank</h1>
+        </div>
+        <form method="post">
+            <label for="account_balance">Account Balance ($):</label>
+            <input type="number" step="0.01" name="account_balance" required>
+
+            <label for="age">Age:</label>
+            <input type="number" name="age" min="18" max="100" required>
+
+            <label for="account_type">Account Type:</label>
+            <select name="account_type">
+                <option value="Savings">Savings</option>
+                <option value="Current">Current</option>
+            </select>
+
+            <label for="loan_amount">Loan Amount Requested ($):</label>
+            <input type="number" step="0.01" name="loan_amount" required>
+
+            <label for="interest_rate">Interest Rate (%):</label>
+            <input type="number" step="0.1" name="interest_rate" required>
+
+            <label for="transaction_amount">Last Transaction Amount ($):</label>
+            <input type="number" step="0.01" name="transaction_amount" required>
+
+            <label for="loan_term">Loan Term (months):</label>
+            <select name="loan_term">
+                <option>6</option>
+                <option>12</option>
+                <option>18</option>
+                <option>24</option>
+                <option>36</option>
+                <option>48</option>
+                <option>60</option>
+            </select>
+
+            <button type="submit">🔍 Predict Loan Status</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result {% if prediction == 'Rejected' %}error{% endif %}">
+                <p><strong>Prediction:</strong> {{ prediction }}</p>
+                <p><strong>Confidence:</strong> {{ confidence }}</p>
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
